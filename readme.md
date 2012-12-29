@@ -1,21 +1,22 @@
 Proximity Sensing with MPR 121  
 ==============================  
-This sketch uses the MPR121 capacitive sensor IC as a proximity and touch sensor. It was adapted from code developed by Jim Bloom and published on bildr [http://bildr.org/2011/05/mpr121_arduino/]. We've adapted the code to add the proximity sensing capabilities.
+This sketch uses the MPR121 capacitive sensor IC as a proximity and touch sensor. It was adapted from code developed by Jim Bloom and [published on bildr] (http://bildr.org/2011/05/mpr121_arduino/). We've adapted the code to add the proximity sensing capabilities.
   
-version     1.0.0  
-author      Julio Terra (LAB at Rockwell Group)  
-modified    12/29/12 
-contains	capactivite_prox_sensor_mpr121.ino, mpr121.h
-
-Copyright © 2012 LAB at Rockwell Group, http://www.rockwellgroup.com/lab  
+* __version__:  1.0.0  
+* __author__: Julio Terra from LAB at Rockwell Group  
+* __modified__: 12/29/12  
+* __contains__: capactivite_prox_sensor_mpr121.ino, mpr121.h
 
 Setting Up The Sketch  
 ---------------------  
 
-###1. Physical Set-up: refer to the hook-up diagram below, which I took from the bildr blog post about using the Arduino with the MPR121.
+###1. Physical Set-up:  
+Refer to the hook-up diagram below taken from the bildr blog post about using the Arduino with the MPR121.
 * Add the MPR121 breakout board to a breadboard  
 * Hook-up the electrodes to the MPR121 breakout board  
 * Connect the Arduino to the MPR121 breakout board   
+
+![Arduino and MPR121 hook-up diagram](https://raw.github.com/labatrockwell/arduino_capactive_sensor_MPR121/master/mpr121.png)
 
 ###2. Software Set-up
 * Load the sketch on the Arduino  
@@ -40,10 +41,10 @@ touch released: 'touch_sensor_num:0' ['0:0' .. '11:0']
 About the MPR121  
 ================  
 This prototype uses an MR121 IC from Freescale, mounted on a sparkfun proto board which is connected to the Arduino via I2C. Here are some useful links related to the breakout board and IC.
-* Link to the Sparkfun MPR121 breakout board product page [https://www.sparkfun.com/products/9695?]  
-* Link to the general documentation page for MPR121 [http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=MPR121]
-* link to proximity sensing application notes for the MPR121. [http://cache.freescale.com/files/sensors/doc/app_note/AN3893.pdf?fpsp=1&WT_TYPE=Application%20Notes&WT_VENDOR=FREESCALE&WT_FILE_FORMAT=pdf&WT_ASSET=Documentation] 
-	* I used this document to figure out how to configure the MPR121 to enable proximity sensing.  
+* [Sparkfun MPR121 breakout board product page] (https://www.sparkfun.com/products/9695?)  
+* [General documentation page for MPR121] (http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=MPR121)
+* [Proximity sensing application notes for the MPR121] (http://cache.freescale.com/files/sensors/doc/app_note/AN3893.pdf?fpsp=1&WT_TYPE=Application%20Notes&WT_VENDOR=FREESCALE&WT_FILE_FORMAT=pdf&WT_ASSET=Documentation)
+	* I used this document to figure out how to configure the MPR121 to enable proximity sensing  
   
 License  
 =======  
