@@ -1,11 +1,11 @@
 /*!
  *  @filename   capactivite_prox_sensor_mpr121.ino
  *  @author     Julio Terra
- *  @date       December 28, 2012
- *  @version    1.0.0
+ *  @date       May 22, 2013
+ *  @version    1.0.1
  *
  *  Please check-out the read-me for details about how to hook-up the Arduino and the MPR121
- *  breakout boards.
+ *  breakout boards. 
  *  
 */
 
@@ -22,13 +22,11 @@
 bool touchStates[SENSORS];    // holds the current touch/prox state of all sensors
 bool activeSensors[SENSORS] = {1,1,1,1,1,1,1,1,1,1,1,1,1}; // holds which sensors are active (0=inactive, 1=active)
 bool newData = false;         // flag that is set to true when new data is available from capacitive sensor
-int irqpin = 3;               // pin that connects to notifies when data is available from capacitive sensor
+int irqpin = 2;               // pin that connects to notifies when data is available from capacitive sensor
 
 void setup(){
 
-  // set IRQ pin to input, turn on the pullup resistor, and attach interrupt to pin
-  pinMode(irqpin, INPUT);
-  digitalWrite(irqpin, HIGH); 
+  // attach interrupt to pin - interrupt 1 is on pin 2 of the arduino (confusing I know)
   attachInterrupt(1, dataAvailable, FALLING);
 
   // set-up the Serial and I2C/Wire connections
@@ -45,7 +43,7 @@ void loop(){
 
 /**
  * dataAvailable Callback method that runs whenever new data becomes available on from the capacitive sensor. 
- *   This method was attached to the interrupt on pin 3, and is called whenever that pins goes low.
+ *   This method was attached to the interrupt on pin 2, and is called whenever that pins goes low.
  */
 void dataAvailable() {
   newData = true;
@@ -198,15 +196,6 @@ void setupCapacitiveRegisters(){
   // Section H - Start listening to all electrodes and the proximity sensor
     set_register(0x5A, ELE_CFG, 0x3C);
 }
-
-/**
- * checkInterrupt Checks the value of the interrupt pin to determine whether there is 
- * new data to be read. Value is LOW if new data is available, HIGH if no data available.
- * @return  The value of the interrupt pin      
- */
- boolean checkInterrupt(){
-   return digitalRead(irqpin);
- }
 
 /**
  * set_register Sets a register on a device connected via I2C. It accepts the device's address, 
