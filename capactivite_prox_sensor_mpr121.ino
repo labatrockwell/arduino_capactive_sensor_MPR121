@@ -27,7 +27,7 @@ int irqpin = 2;               // pin that connects to notifies when data is avai
 void setup(){
 
   // attach interrupt to pin - interrupt 1 is on pin 2 of the arduino (confusing I know)
-  attachInterrupt(1, dataAvailable, FALLING);
+  attachInterrupt(0, dataAvailable, FALLING);
 
   // set-up the Serial and I2C/Wire connections
   Serial.begin(9600);
